@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
 const dotenv = require('dotenv').config()
@@ -9,6 +10,10 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
+// Set a static folder
+app.use(express.static(path.join(__dirname, 'public')))
+
+// Parcer for testing in the browser with index.html / alternative to postman
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/openai', require('./routes/openaiRoutes'))
 
