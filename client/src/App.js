@@ -23,6 +23,7 @@ function App() {
     try {
       const response = await fetch(
         'http://localhost:5000/openai/generateimage',
+        // `${process.env.REACT_APP_API_URL}/openai/generateimage`,
         {
           method: 'POST',
           headers: {
@@ -57,8 +58,8 @@ function App() {
       <header>
         <div className="navbar">
           <div className="logo">
-            <h2> OpenAI Image Genrator </h2>
-          </div>
+            <h2> OpenAI Image Genrator </h2>{' '}
+          </div>{' '}
           <div className="nav-links">
             <ul>
               <li>
@@ -67,17 +68,17 @@ function App() {
                   target="_blank"
                   rel="noreferrer noopener"
                 >
-                  OpenAI API Docs
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </header>
+                  OpenAI API Docs{' '}
+                </a>{' '}
+              </li>{' '}
+            </ul>{' '}
+          </div>{' '}
+        </div>{' '}
+      </header>{' '}
       <main>
         <section className="showcase">
           <form id="image-form" onSubmit={handleSubmit}>
-            <h1> Describe An Image </h1>
+            <h1> Describe An Image </h1>{' '}
             <div className="form-control">
               <input
                 type="text"
@@ -85,8 +86,8 @@ function App() {
                 placeholder="Enter Text"
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
-              />
-            </div>
+              />{' '}
+            </div>{' '}
             <div className="form-control">
               <select
                 name="size"
@@ -94,30 +95,30 @@ function App() {
                 value={size}
                 onChange={(e) => setSize(e.target.value)}
               >
-                <option value="small"> Small </option>
-                <option value="medium"> Medium </option>
-                <option value="large"> Large </option>
-              </select>
-            </div>
+                <option value="small"> Small </option>{' '}
+                <option value="medium"> Medium </option>{' '}
+                <option value="large"> Large </option>{' '}
+              </select>{' '}
+            </div>{' '}
             <button type="submit" className="btn">
-              Generate
-            </button>
-          </form>
-        </section>
+              Generate{' '}
+            </button>{' '}
+          </form>{' '}
+        </section>{' '}
         <section className="image">
           <div className="image-container">
-            <h2 className="msg">{message}</h2>
-            {/* <img src="" alt="" id="image" /> */}
-            {image ? <img src={image} alt="" /> : null}
-          </div>
-        </section>
-      </main>
+            <h2 className="msg"> {message} </h2>{' '}
+            {/* <img src="" alt="" id="image" /> */}{' '}
+            {image ? <img src={image} alt="" /> : null}{' '}
+          </div>{' '}
+        </section>{' '}
+      </main>{' '}
       {loading ? (
-        <div className="spinner show"></div>
+        <div className="spinner show"> </div>
       ) : (
-        <div className="spinner"></div>
-      )}
-      {/* <div className="spinner"> </div> */}
+        <div className="spinner"> </div>
+      )}{' '}
+      {/* <div className="spinner"> </div> */}{' '}
     </div>
   )
 }
