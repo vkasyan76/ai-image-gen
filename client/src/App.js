@@ -20,10 +20,18 @@ function App() {
     setMessage('')
     setImage('')
 
+    // REACT_APP_API_URL=http://localhost:5000 || https://openimgvk.herokuapp.com
+
+    const REACT_APP_API_URL =
+      process.env.NODE_ENV === 'production'
+        ? 'https://openimgvk.herokuapp.com'
+        : 'http://localhost:5000'
+
     try {
       const response = await fetch(
-        'http://localhost:5000/openai/generateimage',
+        // 'http://localhost:5000/openai/generateimage',
         // `${process.env.REACT_APP_API_URL}/openai/generateimage`,
+        `${REACT_APP_API_URL}/openai/generateimage`,
         {
           method: 'POST',
           headers: {
